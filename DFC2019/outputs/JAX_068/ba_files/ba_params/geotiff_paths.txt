@@ -1,0 +1,5 @@
+/root/mycode/DGR/DFC2019/outputs/JAX_068/JAX_068_001_RGB.tif
+/root/mycode/DGR/DFC2019/outputs/JAX_068/JAX_068_002_RGB.tif
+/root/mycode/DGR/DFC2019/outputs/JAX_068/JAX_068_003_RGB.tif
+/root/mycode/DGR/DFC2019/outputs/JAX_068/JAX_068_004_RGB.tif
+/root/mycode/DGR/DFC2019/outputs/JAX_068/JAX_068_005_RGB.tif

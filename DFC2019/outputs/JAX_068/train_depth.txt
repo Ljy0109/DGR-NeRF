@@ -1,0 +1,5 @@
+/vis_depth/JAX_068_001_RGB_depth.png
+/vis_depth/JAX_068_002_RGB_depth.png
+/vis_depth/JAX_068_003_RGB_depth.png
+/vis_depth/JAX_068_004_RGB_depth.png
+/vis_depth/JAX_068_005_RGB_depth.png

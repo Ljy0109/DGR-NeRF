@@ -1,0 +1,222 @@
+Getting image footprints...
+...done in 0.17 seconds
+Estimating camera positions...
+...done in 0.25 seconds
+
+
+Bundle Adjustment Pipeline created
+-------------------------------------------------------------
+    - input path:     /root/mycode/DGR/DFC2019/outputs/JAX_068
+    - output path:    /root/mycode/DGR/DFC2019/outputs/JAX_068/ba_files
+    - aoi center:     (30.3488, -81.6637) lat, lon
+    - aoi area:       0.07 squared km
+    - input cameras:  5
+
+Configuration:
+    - cam_model:           rpc
+    - n_new:               5
+    - n_adj:               0
+    - correction_params:   ['R']
+    - predefined_matches:  False
+    - fix_ref_cam:         False
+    - ref_cam_weight:      1.0
+    - clean_outliers:      True
+    - tracks_selection:    False
+-------------------------------------------------------------
+
+Building feature tracks
+
+Parameters:
+    - FT_sift_detection:       s2p
+    - FT_matcher:              epipolar_based
+    - FT_rel_thr:              0.6
+    - FT_abs_thr:              250
+    - FT_ransac:               0.3
+    - FT_kp_max:               60000
+    - FT_matches_max:          300
+    - FT_kp_aoi:               False
+    - FT_K:                    0
+    - FT_priority:             ['length', 'scale', 'cost']
+    - FT_predefined_pairs:     []
+    - FT_filter_pairs:         True
+    - FT_n_proc:               1
+    - FT_reset:                False
+    - FT_save:                 True
+    - FT_skysat_sensor_aware:  False
+    - FT_challenging_images:   []
+    - FT_challenging_pairs:    []
+    - FT_pair_ranking:         False
+    - FT_pair_ranking_K:       10
+    - in_dir:                  /root/mycode/DGR/DFC2019/outputs/JAX_068/ba_files/matches
+    - out_dir:                 /root/mycode/DGR/DFC2019/outputs/JAX_068/ba_files/matches
+
+
+
+Running feature detection...
+
+5951 keypoints (from pre-existing file) in image 0
+6121 keypoints (from pre-existing file) in image 1
+5297 keypoints (from pre-existing file) in image 2
+6186 keypoints (from pre-existing file) in image 3
+6354 keypoints (from pre-existing file) in image 4
+
+...done in 3.91 seconds
+
+Computing pairs to match...
+
+     10 / 10 pairs suitable to match
+     9 / 10 pairs suitable to triangulate
+Total pairs to match : 10
+
+...done in 0.01 seconds
+
+Matching...
+
+ 300 matches (from pre-existing file) in pair (0, 1)
+ 191 matches (from pre-existing file) in pair (0, 2)
+ 162 matches (from pre-existing file) in pair (0, 3)
+ 152 matches (from pre-existing file) in pair (0, 4)
+ 289 matches (from pre-existing file) in pair (1, 2)
+ 261 matches (from pre-existing file) in pair (1, 3)
+ 194 matches (from pre-existing file) in pair (1, 4)
+ 168 matches (from pre-existing file) in pair (2, 3)
+ 300 matches (from pre-existing file) in pair (2, 4)
+ 165 matches (from pre-existing file) in pair (3, 4)
+Found 2182 new pairwise matches
+
+...done in 0.05 seconds
+
+Extracting feature tracks...
+
+C.shape before baseline check (10, 1154)
+C.shape after baseline check (10, 925)
+Found 925 tracks in total
+
+...done in 0.38 seconds
+
+Feature tracks computed in 00:00:04.35
+
+Initializing 925 3d point coords to optimize...
+...done in 0.04 seconds
+Connectivity graph: 1 connected components (CCs)
+                    0 missing cameras from largest CC: []
+                    10 edges
+                    177 min n_matches in an edge
+                    365 min obs per camera
+
+Connectivity graph: 1 connected components (CCs)
+                    0 missing cameras from largest CC: []
+                    10 edges
+                    177 min n_matches in an edge
+                    365 min obs per camera
+
+Cameras sorted by neighboring cameras and feature track observations:
+    - cam   1 - JAX_068_002_RGB.tif - neighbors 5 - median obs per neighbor 230
+    - cam   2 - JAX_068_003_RGB.tif - neighbors 5 - median obs per neighbor 223
+    - cam   4 - JAX_068_005_RGB.tif - neighbors 5 - median obs per neighbor 203
+    - cam   3 - JAX_068_004_RGB.tif - neighbors 5 - median obs per neighbor 203
+    - cam   0 - JAX_068_001_RGB.tif - neighbors 5 - median obs per neighbor 194
+
+Defining bundle adjustment parameters...
+     - cam_params_to_optimize: ['R']
+
+C.shape before reduce (10, 925)
+C.shape after reduce (10, 925)
+925 3d points, 0 fixed and 925 to be optimized
+5 cameras, 0 fixed and 5 to be optimized
+3 parameters to optimize per camera
+
+
+Running bundle adjustment...
+    - loss:      soft_l1
+    - ftol:      0.0001
+    - xtol:      1e-10
+    - f_scale:   1.0
+    - max_iter:  300
+    - verbose:   1
+
+
+Shape of Jacobian sparsity: 4862x2790
+`ftol` termination condition is satisfied.
+Function evaluations 17, initial cost 1.1104e+03, final cost 5.3940e+01, first-order optimality 9.09e+04.
+Optimization took 0.39 seconds
+
+Reprojection error before BA (mean / median): 0.92 / 0.86
+Reprojection error after  BA (mean / median): 0.15 / 0.11
+
+    - cam   0 -   365 obs - (mean before / mean after): 0.72 / 0.17
+    - cam   1 -   519 obs - (mean before / mean after): 0.74 / 0.14
+    - cam   2 -   585 obs - (mean before / mean after): 0.65 / 0.13
+    - cam   3 -   456 obs - (mean before / mean after): 1.34 / 0.15
+    - cam   4 -   506 obs - (mean before / mean after): 1.20 / 0.15
+
+
+Computing 924 points 3d from feature tracks...
+...9/9 triangulation pairs done in 0.04 seconds
+done!
+
+Defining bundle adjustment parameters...
+     - cam_params_to_optimize: ['R']
+
+924 3d points, 0 fixed and 924 to be optimized
+5 cameras, 0 fixed and 5 to be optimized
+3 parameters to optimize per camera
+
+Reprojection error threshold per camera: [np.float64(1.0), np.float64(1.0), np.float64(1.0), np.float64(1.0), np.float64(1.0)] px
+Deleted 7 observations (0.29%) and 1 tracks (0.11%)
+Removal of outliers based on reprojection error took 0.05 seconds
+
+Running bundle adjustment...
+    - loss:      linear
+    - ftol:      0.0001
+    - xtol:      1e-10
+    - f_scale:   1.0
+    - max_iter:  300
+    - verbose:   1
+
+
+Shape of Jacobian sparsity: 4846x2787
+`ftol` termination condition is satisfied.
+Function evaluations 15, initial cost 1.4150e+03, final cost 4.0415e+01, first-order optimality 5.61e+04.
+Optimization took 0.51 seconds
+
+Reprojection error before BA (mean / median): 0.92 / 0.85
+Reprojection error after  BA (mean / median): 0.14 / 0.10
+
+    - cam   0 -   363 obs - (mean before / mean after): 0.69 / 0.15
+    - cam   1 -   518 obs - (mean before / mean after): 0.73 / 0.14
+    - cam   2 -   583 obs - (mean before / mean after): 0.65 / 0.12
+    - cam   3 -   455 obs - (mean before / mean after): 1.34 / 0.14
+    - cam   4 -   504 obs - (mean before / mean after): 1.20 / 0.14
+
+
+
+
+Optimization problem solved in 00:00:01.02 (32 iterations)
+
+Global transform to correct drift in object space successfully computed.
+Average errors per dimension: [-5.51838863e-11  3.24551806e-10 -5.49319051e-11]
+
+Bundle adjusted 3d points written at /root/mycode/DGR/DFC2019/outputs/JAX_068/ba_files/pts3d_adj.ply
+
+All estimated camera parameters written at /root/mycode/DGR/DFC2019/outputs/JAX_068/ba_files/cam_params
+
+Fitting corrected RPC models...
+warning: median altitude of bundle adjustment points is 6.24 meters deviated from the original rpc alt_offset
+cam  0 - RPC fit error per obs  [1e-4 px] max / med: 0.41 / 0.12 (margin 10)
+warning: median altitude of bundle adjustment points is 6.33 meters deviated from the original rpc alt_offset
+cam  1 - RPC fit error per obs  [1e-4 px] max / med: 0.28 / 0.08 (margin 10)
+cam  2 - RPC fit error per obs  [1e-4 px] max / med: 0.44 / 0.12 (margin 10)
+warning: median altitude of bundle adjustment points is 5.45 meters deviated from the original rpc alt_offset
+cam  3 - RPC fit error per obs  [1e-4 px] max / med: 0.33 / 0.15 (margin 10)
+cam  4 - RPC fit error per obs  [1e-4 px] max / med: 0.50 / 0.10 (margin 10)
+Bundle adjusted rpcs written at /root/mycode/DGR/DFC2019/outputs/JAX_068/ba_files/rpcs_adj
+
+
+Bundle adjustment pipeline completed in 00:00:09.00
+
+
+Successfully corrected 5/5 cameras.
+
+
+
