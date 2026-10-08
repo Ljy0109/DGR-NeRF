@@ -158,11 +158,11 @@ class Dataset:
         min_alts = float(min_alt) * np.ones(cols.shape)
         max_alts = float(max_alt) * np.ones(cols.shape)
         lons, lats = rpc.localization(cols, rows, max_alts)
-        x_near, y_near, z_near = sat_utils.latlon_to_ecef_custom(lats, lons, max_alts)
+        x_near, y_near, _, _ = utm.from_latlon(lats, lons, 17, 'R')
         xyz_near = np.vstack([x_near, y_near, max_alts]).T
 
         lons, lats = rpc.localization(cols, rows, min_alts)
-        x_far, y_far, z_far = sat_utils.latlon_to_ecef_custom(lats, lons, min_alts)
+        x_far, y_far, _, _ = utm.from_latlon(lats, lons, 17, 'R')
         xyz_far = np.vstack([x_far, y_far, min_alts]).T
 
         rays_o = xyz_near  
